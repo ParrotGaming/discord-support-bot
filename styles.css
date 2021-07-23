@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(44, 47, 51);
+    color: rgb(246 246 246);
+}
+
+.avatar {
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 10px;
+    border:solid 1px;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    font-family: sans-serif;
+    display: inline;
+    padding-left: 15px;
+    line-height: 27px;
+}
+
+div {
+    padding-bottom: 35px;
+}
