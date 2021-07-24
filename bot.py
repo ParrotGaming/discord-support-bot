@@ -9,7 +9,7 @@ import string
 import random
 load_dotenv()
 
-base_file = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"stylesheet\" href=\"styles.css\"><title>Saved Transcript</title></head><body>"
+base_file = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><style>body {background-color: rgb(44, 47, 51);color: rgb(246 246 246);}.avatar {margin-left: 5px;width: 50px;height: 50px;float: left;border-radius: 10px;border:solid 1px;}.username {font-size: 18px;font-weight: bold;}p {font-family: sans-serif;display: inline;padding-left: 15px;line-height: 27px;}div {padding-bottom: 35px;}</style><title>Saved Transcript</title></head><body>"
 
 token = os.getenv("DISCORD_TOKEN")
 
@@ -20,8 +20,7 @@ client = commands.Bot(command_prefix = prefix)
 def prep_ticket(dir_name, filename):
     try:
         os.makedirs(dir_name)
-        shutil.copy(filename + '.html', '{}/index.html'.format(dir_name))
-        shutil.copy('styles.css', '{}/styles.css'.format(dir_name))
+        shutil.copy(filename + '.html', '{}/{}.html'.format(dir_name, filename))
         shutil.make_archive(dir_name, 'zip', dir_name)
         os.remove(filename + '.html')
         shutil.rmtree(dir_name + "/")
