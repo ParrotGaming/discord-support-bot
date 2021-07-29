@@ -42,7 +42,7 @@ async def on_message(message):
             generate_html(message.channel.name + ".html")
             prep_ticket(message.channel.name, message.channel.name)
             await discord.utils.get(message.guild.channels, name=message.channel.name).delete()
-            embed=discord.Embed(title="Thank You For Contacting APIS Support", description="A transcript of your ticket has been attached to this message", color=discord.Color.green())
+            embed=discord.Embed(title="Thank You For Contacting {} Support".format(message.guild.name), description="A transcript of your ticket has been attached to this message", color=discord.Color.green())
             embed.set_footer(text="Developed By Parrot Gaming#6142")
             await message.author.send(embed=embed)
             await message.author.send(file=File(message.channel.name + ".zip"))
